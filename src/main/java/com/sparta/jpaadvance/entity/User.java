@@ -17,6 +17,6 @@ public class User {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "user")
-    private List<Order> orderList = new ArrayList<>();
+    @OneToMany(mappedBy = "user")//DB 테이블에 영향 안줌
+    private List<Food> foodList = new ArrayList<>();
 }
