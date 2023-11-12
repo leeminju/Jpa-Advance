@@ -17,6 +17,11 @@ public class User {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "user")//DB 테이블에 영향 안줌
+    @OneToMany(mappedBy = "user",  cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<Food> foodList = new ArrayList<>();
+
+    public void addFoodList(Food food) {
+        foodList.add(food);
+        food.setUser(this);//외래 키 설정
+    }
 }
